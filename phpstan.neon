@@ -1,0 +1,23 @@
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+    - ./vendor/phpstan/phpstan/conf/bleedingEdge.neon
+
+parameters:
+    phpVersion: 80500
+    level: 5
+    treatPhpDocTypesAsCertain: false
+    paths:
+        - app
+        - config
+        - database
+        - routes
+
+    excludePaths:
+        - ./*/cache/*
+        - ./storage/*
+        - ./app/Shared/Infrastructure/Persistence/Eloquent/*
+
+    ignoreErrors:
+        - message: '#Call to method .+ of internal class Pest\\.*#'
+
+    reportUnmatchedIgnoredErrors: false

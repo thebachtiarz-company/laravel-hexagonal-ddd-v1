@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Modules\{{ $module }}\Infrastructure\Persistence\Eloquent\Factories;
+
+use App\Modules\{{ $module }}\Infrastructure\Persistence\Eloquent\Models\{{ $name }}Model;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class {{ $name }}Factory extends Factory
+{
+    protected $model = {{ $name }}Model::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            // Define your default values here
+        ];
+    }
+}

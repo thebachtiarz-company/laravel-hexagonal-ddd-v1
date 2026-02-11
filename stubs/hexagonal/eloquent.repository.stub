@@ -1,0 +1,18 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Modules\{{ $module }}\Infrastructure\Persistence\Eloquent\Repositories;
+
+use App\Modules\{{ $module }}\Domain\Entities\{{ $name }}Entity;
+use App\Modules\{{ $module }}\Domain\Ports\{{ $name }}RepositoryInterface;
+
+class {{ $name }}Repository implements {{ $name }}RepositoryInterface
+{
+    public function findById(int $id): ?{{ $name }}Entity
+    {
+        throw new \Exception('Not implemented');
+        // build the eloquent repository logic here...
+        // make sure to do mapping to ModelEntity for result.
+    }
+}

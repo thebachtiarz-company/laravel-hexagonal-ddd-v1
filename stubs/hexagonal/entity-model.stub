@@ -1,0 +1,12 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Modules\{{ $module }}\Domain\Entities;
+
+class {{ $name }}Entity
+{
+    public function __construct(
+        // attributes
+    ) {}
+}

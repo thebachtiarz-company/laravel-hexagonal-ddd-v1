@@ -1,0 +1,14 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Modules\{{ $module }}\Domain\Ports;
+
+use App\Modules\{{ $module }}\Domain\Entities\{{ $name }}Entity;
+
+interface {{ $name }}RepositoryInterface
+{
+    public function findById(int $id): ?{{ $name }}Entity;
+
+    // continue the eloquent repository methods..
+}

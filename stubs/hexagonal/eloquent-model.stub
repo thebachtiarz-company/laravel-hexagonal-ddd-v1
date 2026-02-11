@@ -1,0 +1,30 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Modules\{{ $module }}\Infrastructure\Persistence\Eloquent\Models;
+
+use App\Modules\{{ $module }}\Infrastructure\Persistence\Eloquent\Factories\{{ $name }}Factory;
+use App\Shared\Infrastructure\Persistence\Eloquent\HasFactory;
+use App\Shared\Infrastructure\Persistence\Eloquent\Model;
+
+class {{ $name }}Model extends Model
+{
+    use HasFactory;
+
+    public const string TABLE = '{{ $tableName }}';
+
+    /**
+     * Create a new Eloquent model instance.
+     */
+    public function __construct(array $attributes = [])
+    {
+        $this->setTable(self::TABLE);
+
+        $this->fillable([]);
+
+        $this->modelFactory = {{ $name }}Factory::class;
+
+        parent::__construct($attributes);
+    }
+}
