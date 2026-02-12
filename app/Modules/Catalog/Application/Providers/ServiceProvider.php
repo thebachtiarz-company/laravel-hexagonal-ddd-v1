@@ -11,7 +11,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register(): void
     {
-        // Bind your Domain Ports to Infrastructure Adapters here
+        $this->app->bind(
+            abstract: \App\Modules\Catalog\Domain\Ports\ProductRepositoryInterface::class,
+            concrete: \App\Modules\Catalog\Infrastructure\Persistence\Eloquent\Repositories\ProductRepository::class,
+        );
     }
 
     /**

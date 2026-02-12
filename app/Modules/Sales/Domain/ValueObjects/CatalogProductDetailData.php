@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Modules\Catalog\Application\DTO;
+namespace App\Modules\Sales\Domain\ValueObjects;
 
-class ProductDetailDTO
+class CatalogProductDetailData
 {
     public function __construct(
-        public ?int $id = null,
-        public ?string $sku = null,
-        public ?string $name = null,
-        public ?float $price = null,
+        public readonly int $id,
+        public readonly string $sku,
+        public readonly string $name,
+        public readonly float $price,
     ) {}
 
     public function toArray(): array
