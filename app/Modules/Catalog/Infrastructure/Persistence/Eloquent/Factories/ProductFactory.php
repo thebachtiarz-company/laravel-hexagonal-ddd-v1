@@ -19,9 +19,11 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+        $name = fake()->words(asText: true);
+
         return [
-            ProductModel::SKU => Str::random(),
-            ProductModel::NAME => fake()->words(asText: true),
+            ProductModel::SKU => Str::upper(Str::snake($name, '-')),
+            ProductModel::NAME => $name,
             ProductModel::PRICE => round(mt_rand(10000, 999999), 2),
         ];
     }

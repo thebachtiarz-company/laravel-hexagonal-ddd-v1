@@ -14,7 +14,7 @@ it('can crete new product', function (): void {
     $entity = new ProductEntity;
 
     $entity->name = fake()->words(asText: true);
-    $entity->sku = Str::lower(Str::snake($entity->name, '-'));
+    $entity->sku = Str::upper(Str::snake($entity->name, '-'));
     $entity->price = round(mt_rand(10000, 999999), 2);
 
     $dto = new ProductCreateDTO(

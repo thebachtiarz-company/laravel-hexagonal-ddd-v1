@@ -7,15 +7,11 @@ namespace App\Modules\Sales\Infrastructure\ExternalServices;
 use App\Modules\Catalog\Application\UseCases\Product\FindProductBySkuUseCase;
 use App\Modules\Sales\Domain\ValueObjects\CatalogProductDetailData;
 
-class SalesProductService
+class CatalogProductService
 {
-    public function __construct(
-        protected FindProductBySkuUseCase $findProductBySku,
-    ) {}
-
     public function findProductBySku(string $sku): ?CatalogProductDetailData
     {
-        $product = $this->findProductBySku($sku);
+        $product = app(FindProductBySkuUseCase::class)($sku);
 
         if (! $product) {
             return null;

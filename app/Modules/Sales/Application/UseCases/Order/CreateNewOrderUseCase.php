@@ -9,7 +9,7 @@ use App\Modules\Sales\Domain\Entities\OrderEntity;
 use App\Modules\Sales\Domain\Entities\OrderItemEntity;
 use App\Modules\Sales\Domain\Ports\OrderItemRepositoryInterface;
 use App\Modules\Sales\Domain\Ports\OrderRepositoryInterface;
-use App\Modules\Sales\Infrastructure\ExternalServices\SalesProductService;
+use App\Modules\Sales\Infrastructure\ExternalServices\CatalogProductService;
 use Illuminate\Support\Facades\DB;
 
 class CreateNewOrderUseCase
@@ -17,7 +17,7 @@ class CreateNewOrderUseCase
     public function __construct(
         protected OrderRepositoryInterface $orderRepository,
         protected OrderItemRepositoryInterface $orderItemRepository,
-        protected SalesProductService $salesProductService,
+        protected CatalogProductService $catalogProductService,
     ) {}
 
     public function __invoke(OrderCreateDTO $data): void
@@ -29,7 +29,7 @@ class CreateNewOrderUseCase
             ));
 
             foreach ($data->items as $key => $item) {
-                $product = $this->salesProductService->findProductBySku($item->sku);
+                $product = $this->catalogProductService->findProductBySku($item->sku);
 
                 if (! $product) {
                     continue;
